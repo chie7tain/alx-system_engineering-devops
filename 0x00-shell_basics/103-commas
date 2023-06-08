@@ -1,2 +1,3 @@
 #!/bin/bash
-ls -am
+ls -a1 | awk '{print $0","}' | sort -t/ -k2 | awk 'BEGIN{RS=","} /^\.\/\.\.($|\/)/{print} END{ORS="\n"} 1'
+
